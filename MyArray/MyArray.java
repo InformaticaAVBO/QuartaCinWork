@@ -14,13 +14,27 @@ public class MyArray<T> {
         top = 0;
     }
 
+    @SuppressWarnings("unchecked")
     public void add( T value ) {
-        // completare il metodo add, che aggiunge un elemento alla fine dell'array, e se necessario allarga l'array di delta elementi
+        if (top == size) {
+            // se l'array è pieno, lo allargo di delta elementi
+            size += delta;
+            T[] newData = (T[]) new Object[size];
+            System.arraycopy(data, 0, newData, 0, top);
+            data = newData;
+        }
+        data[top++] = value;
     }
 
     public String toString() {
-        // completare il metodo toString, che restituisce una stringa con tutti gli elementi dell'array su righe separate
-        return "Il contenuto di MyArray è: \n" + super.toString();
+        // uso iterator per costruire la stringa che rappresenta il contenuto di MyArray
+        StringBuilder sb = new StringBuilder();
+        sb.append("Gli elementi presenti in MyArray sono:\n");
+        Iterator<T> it = iterator();
+        while (it.hasNext()) {
+            sb.append(it.next()).append("\n");
+        }
+        return sb.toString();
     }
 
     public boolean contains( T value ) {

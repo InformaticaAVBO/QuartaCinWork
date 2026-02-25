@@ -116,6 +116,7 @@ public class App {
         CalcolatriceModel theModel = new CalcolatriceModel();
         
         // Istanziamo il Controller collegando i due precedenti
+        @SuppressWarnings("unused")
         CalcolatriceController theController = new CalcolatriceController(theView, theModel);
 
         // Rendiamo visibile la View
