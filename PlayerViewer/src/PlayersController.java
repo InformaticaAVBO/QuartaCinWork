@@ -11,17 +11,17 @@ public class PlayersController {
         
         this.view.showPlayer(model.getCurrentPlayer());
         
-        this.view.addForwardHook(e -> forward());
-        this.view.addBackHook(e -> back());
+        this.view.addForwardHook(e -> forward_hook());
+        this.view.addBackHook(e -> back_hook());
     }
     
-    private void forward() {
-        model.forward();
+    private void forward_hook() {
+        model.forward_player();
         view.showPlayer(model.getCurrentPlayer());
     }
     
-    private void back() {
-        model.bach();
+    private void back_hook() {
+        model.back_player();
         view.showPlayer(model.getCurrentPlayer());
     }
     

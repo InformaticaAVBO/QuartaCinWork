@@ -15,12 +15,12 @@ public class PlayersModel {
         parse();
     }
     
-    public void forward() {
+    public void forward_player() {
         current = (current+1)%p.length;
     }
     
     
-    public void bach() {
+    public void back_player() {
         current = (current-1);
         if (current < 0) current = p.length - 1;
     }
