@@ -1,2 +1,10 @@
-.vscode/*.*
-.class
+.vscode/
+*.class
+
+# Ignore log files and temp files
+*.log
+*.tmp
+
+# Ignore executable files
+*.exe
+*.dll
