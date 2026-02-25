@@ -1,3 +1,4 @@
+
 // NOTE: it is recommended to use this even if you don't understand the following code.
 
 import java.util.*;
@@ -15,7 +16,7 @@ public class rollercoaster {
         // fout = new FileOutputStream("output.txt");
 
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fout));
-        reader = new BufferedReader(new InputStreamReader(fin));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
         scn = new StringTokenizer(reader.readLine());
 
         int N = Integer.parseInt(next());
@@ -32,6 +33,8 @@ public class rollercoaster {
         writer.write('\n');
 
         writer.flush();
+        reader.close();
+        writer.close();
     }
 
     static String next() throws IOException {

@@ -4,6 +4,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
+
 public class lake {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
@@ -15,7 +16,7 @@ public class lake {
         // fout = new FileOutputStream("output.txt");
 
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fout));
-        reader = new BufferedReader(new InputStreamReader(fin));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
         scn = new StringTokenizer(reader.readLine());
 
         int N = Integer.parseInt(next());
@@ -38,6 +39,8 @@ public class lake {
         writer.write('\n');
 
         writer.flush();
+        reader.close();
+        writer.close();
     }
 
     static String next() throws IOException {
