@@ -1,11 +1,10 @@
 /*
-** Lista.java - Classe che rappresenta una lista collegata di nodi contenenti Stringhe.
-** La lista supporta operazioni di aggiunta, rimozione, ricerca e verifica dell'esistenza di nodi.
+** Lista.java - Classe che rappresenta una lista generica di nodi contenenti oggetti generici (di tipo T).
 */
 
-public class Lista {
+public class Lista<T> {
     
-    Nodo root;
+    Nodo<T> root;
     
     public Lista() {
         root = null;
@@ -16,7 +15,7 @@ public class Lista {
     }
 
     public int getLength() {
-        Nodo tmp = root;
+        Nodo<T> tmp = root;
         int l = 0;
         while (tmp!=null) {
             l++;
@@ -25,34 +24,34 @@ public class Lista {
         return l;
     }
 
-    public void add( String s ) {
-        Nodo n = new Nodo(s);
+    public void add( T t ) {
+        Nodo<T> n = new Nodo<T>(t);
         addTail(n);
     }
 
-    public void addHead( Nodo n ) {
-        Nodo tmp = root;
+    public void addHead( Nodo<T> n ) {
+        Nodo<T> tmp = root;
         root = n;
         n.setNext(tmp);
     }
 
-    public void addTail( Nodo n ) {
+    public void addTail( Nodo<T> n ) {
         if (root==null) {
             root = n;
         } else {
-            Nodo temp = root;
+            Nodo<T>  temp = root;
             while (temp.getNext()!=null) temp=temp.getNext();
             temp.setNext(n);
         }
     }
 
-    public boolean remove( String s ) {
+    public boolean remove( T s ) {
         if (root==null) return false;
         if (root.getValue().equals(s)) {
             root = root.getNext();
             return true;
         }
-        Nodo tmp=root, succ=root.getNext();
+        Nodo<T> tmp=root, succ=root.getNext();
         while (succ!=null) {
             if (succ.getValue().equals(s)) {
                 tmp.setNext(succ.getNext());
@@ -64,8 +63,8 @@ public class Lista {
         return false;
     }
 
-    public boolean exists( String s ) {
-        Nodo tmp = root;
+    public boolean exists( T s ) {
+        Nodo<T> tmp = root;
         while (tmp!=null) {
             if (tmp.getValue().equals(s)) return true;
             tmp = tmp.getNext();
@@ -73,8 +72,8 @@ public class Lista {
         return false;
     }
 
-    public Nodo find( String s ) {
-        Nodo tmp = root;
+    public Nodo<T> find( T s ) {
+        Nodo<T> tmp = root;
         while (tmp!=null) {
             if (tmp.getValue().equals(s)) return tmp;
             tmp = tmp.getNext();
@@ -84,7 +83,7 @@ public class Lista {
 
     public String toString() {
         String s = "La lista contiene: ";
-        Nodo temp = root;
+        Nodo<T> temp = root;
         while (temp!=null) {
             s += temp.getValue() + " - ";
             temp = temp.getNext();
