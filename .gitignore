@@ -1,4 +1,5 @@
 .vscode/
+**/.vscode/
 *.class
 
 # Ignore log files and temp files
