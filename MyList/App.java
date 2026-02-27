@@ -1,17 +1,36 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class App {
 	public static void main(String[] args) {
 
         // crea una lista di stringhe con dati di prova, la manipola con i metodi presenti ed infine la stampa
-        Lista<String> l = new Lista<>();
+        ListaOrdinata<String> l = new ListaOrdinata<>();
 	    l.add( "Mario" );
-	    l.addHead(new Nodo<>("Prima di Mario"));
-	    l.addTail(new Nodo<>("Dopo di Mario"));
-        
-		System.out.println("Lunghezza lista: " + l.getLength());
-		System.out.println("Contiene 'Mario'? " + l.exists("Mario"));
-		System.out.println("Contiene 'Luigi'? " + l.exists("Luigi"));
+	    l.add( "Luigi" );
+	    l.add( "Anna" );
+	    l.add( "Vincenzo" );
+	    l.add( "Giuseppe" );
+	    l.add( "Massimo" );
+	    l.add( "Valerio" );
 		System.out.println(l);
-		System.out.println("Rimuovo 'Mario': " + l.remove("Mario"));
-		System.out.println(l);
+
+        // crea una lista di stringhe con dati di prova, la manipola con i metodi presenti ed infine la stampa
+        ListaOrdinata<Bici> lb = new ListaOrdinata<>();
+	    lb.add( new Bici(16, Colori.BIANCO ) );
+	    lb.add( new Bici(24, Colori.ROSSO ) );
+	    lb.add( new Bici(18, Colori.VERDE ) );
+		System.out.println(lb);
+
+		ArrayList<Bici> alb = new ArrayList<>();
+		alb.add( new Bici(32, Colori.VERDE) );
+		alb.add( new Bici(36, Colori.ROSSO) );
+		alb.add( new Bici(22, Colori.BIANCO) );
+		alb.add( new Bici(24, Colori.VERDE) );
+		alb.add( new Bici(16, Colori.BIANCO) );
+		System.out.println(alb);
+		Collections.sort(alb);
+		System.out.println(alb);
+
 	}
 }
